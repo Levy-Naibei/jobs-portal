@@ -11,7 +11,7 @@ yarn install
 ```
 yarn start
 ```
-* Or visit: 
+* Or visit: https://coders-jobs.netlify.com/
 
 ### Compiles and minifies for production
 ```
