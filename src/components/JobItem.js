@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Truncate from 'react-truncate';
 import renderHTML from 'react-render-html';
 import './card.scss';
+import jobs from '../assets/jobs.jpeg';
 
 export default class JobItem extends Component {
 
@@ -13,11 +14,15 @@ export default class JobItem extends Component {
         const{type, url, company, company_url, location, title, description,
              how_to_apply, company_logo} = job;
 
+    
         return (
             <div className="main-content">
                 <div className='card_header'>
                     <div className='company_logo'>
-                        <a href={company_url}> <img className='card_img' alt='logo' src={company_logo} /> </a>
+                        { company_logo ?
+                            <img className='card_img' alt='logo' src = {company_logo} /> :
+                            <img className='card_img' alt='no-logo' src = {jobs} />
+                        }
                     </div>
 
                     <div className="job_title">{title} </div>
@@ -25,7 +30,9 @@ export default class JobItem extends Component {
                     <div className="job_time">{type} </div>    
                 </div>
 
-                <div className="company_name">{company}</div>
+                <div className="company_name">
+                    <a href={company_url}>{company}</a>
+                </div>
 
                 <div className="job_location">{location} </div>
     
@@ -44,7 +51,8 @@ export default class JobItem extends Component {
                         <p className="apply">{renderHTML(how_to_apply)}</p>
                     </div>
                 </div>
-            </div>
+           </div>
+
         )
     }
 }

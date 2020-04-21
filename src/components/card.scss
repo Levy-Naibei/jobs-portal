@@ -70,7 +70,7 @@
     }
 }
 
-.company_name {
+.company_name a {
     margin-left: 17.36vw;
     font-size: 14px;
     color: gray;
@@ -81,6 +81,10 @@
     @include tablet {
         margin-left: 32.36vw;
     }
+}
+
+.company_name a:hover {
+    text-decoration: none;
 }
 
 .job_time {

@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
 import './App.css'
 import JobItem from './components/JobItem';
+import RingLoader from 'react-spinners/RingLoader'
+import { css } from "@emotion/core";
+
+// Can be a string as well. Need to ensure each key-value pair ends with ;
+const override = css`
+  display: block;
+  margin: 10% auto;
+  border-color: red;
+`;
+
 
 export default class App extends Component {
 
   state = {
-    jobs: [],
+    loading: true,
+    jobs: []
+    
   }
 
   async componentDidMount(){
@@ -15,23 +27,35 @@ export default class App extends Component {
     const data = await response.json()
 
     this.setState(() => {
-      return {jobs: data};
+      return {loading: false, jobs: data};
     })
   }
 
   render() {
 
-    const{jobs} = this.state;
-    console.log('Jobs here ', jobs);
+    if(this.state.loading){
+  
+        return <RingLoader
+          css={override}
+          size={80}
+          color={"#50E3C2"}
+        />
+    }
 
-    return (
-      <div className='app'>
-        { jobs.map((job, id)=> {
-          return  <JobItem  key={id} job={job}/>;
-        }
+    else{
 
-        )}
-      </div>
-    )
-  }
+      const{jobs} = this.state;
+      console.log('Jobs here ', jobs);
+
+      return (
+        <div className='app'>
+          { jobs.map((job, id)=> {
+            return  <JobItem  key={id} job={job}/>;
+          }
+  
+          )}
+        </div>
+      )
+    }
+    }
 }
