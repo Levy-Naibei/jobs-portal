@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import JobItem from './components/JobItem';
-import RingLoader from 'react-spinners/RingLoader'
+import HashLoader from 'react-spinners/HashLoader';
 import { css } from "@emotion/core";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
@@ -35,7 +35,7 @@ export default class App extends Component {
 
     if(this.state.loading){
   
-        return <RingLoader
+        return <HashLoader
           css={override}
           size={80}
           color={"#50E3C2"}

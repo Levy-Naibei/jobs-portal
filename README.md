@@ -1,4 +1,6 @@
-# Jobs Portal
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a8bb302c-d369-4265-86eb-017a0644fa33/deploy-status)](https://app.netlify.com/sites/coders-jobs/deploys)
+
+# Techies Jobs Portal
 
 ## Project setup
 ```
@@ -9,7 +11,7 @@ yarn install
 ```
 yarn start
 ```
-* Or visit: 
+* Or visit: https://coders-jobs.netlify.com/
 
 ### Compiles and minifies for production
 ```

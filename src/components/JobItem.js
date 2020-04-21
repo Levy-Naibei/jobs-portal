@@ -31,7 +31,7 @@ export default class JobItem extends Component {
                 </div>
 
                 <div className="company_name">
-                    <a href={company_url}>{company}</a>
+                    <a href={company_url} target="_blank" rel="noopener noreferrer">{company}</a>
                 </div>
 
                 <div className="job_location">{location} </div>
@@ -39,7 +39,11 @@ export default class JobItem extends Component {
                 <div className='job_description'>
                     <Truncate 
                         lines={3} 
-                        ellipsis={<span>... <a href={url}>Read more</a></span>}
+                        ellipsis={
+                        <span>
+                            ... <a href={url} target="_blank" rel="noopener noreferrer">Read more</a>
+                        </span>
+                        }
                         >
                             {renderHTML(description)}
                     </Truncate>
